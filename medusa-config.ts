@@ -26,6 +26,10 @@ export default defineConfig({
   },
   modules: [
     {
+      resolve: "./src/modules/event",
+      key: "eventModuleService",
+    },
+    {
       resolve: "@medusajs/medusa/payment",
       options: {
         providers: [
