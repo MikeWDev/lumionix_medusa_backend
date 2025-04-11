@@ -2,6 +2,7 @@
 .env
 .DS_Store
 /uploads
+/supabase
 /node_modules
 yarn-error.log
 

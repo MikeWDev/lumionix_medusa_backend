@@ -1,4 +1,3 @@
-// medusa-config.ts
 import { loadEnv, defineConfig } from "@medusajs/framework/utils";
 
 loadEnv(process.env.NODE_ENV || "development", process.cwd());
@@ -25,6 +24,12 @@ export default defineConfig({
     },
   },
   modules: [
+    {
+      resolve: "@medusajs/medusa/order",
+    },
+    {
+      resolve: "@medusajs/medusa/event-bus-local",
+    },
     {
       resolve: "./src/modules/event",
       key: "eventModuleService",

@@ -1,4 +1,3 @@
-// src/modules/event/service.ts
 import { MedusaService } from "@medusajs/framework/utils";
 import { Event } from "./models/event";
 
