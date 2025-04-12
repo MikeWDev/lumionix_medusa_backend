@@ -3,16 +3,6 @@ import { loadEnv, defineConfig } from "@medusajs/framework/utils";
 loadEnv(process.env.NODE_ENV || "development", process.cwd());
 
 export default defineConfig({
-  admin: {
-    backendUrl: process.env.MEDUSA_BACKEND_URL,
-    vite: () => {
-      return {
-        server: {
-          allowedHosts: ["cf0d-87-116-229-184.ngrok-free.app"],
-        },
-      };
-    },
-  },
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
     http: {
@@ -28,7 +18,11 @@ export default defineConfig({
       resolve: "@medusajs/medusa/order",
     },
     {
-      resolve: "@medusajs/medusa/event-bus-local",
+      resolve: "@medusajs/event-bus-redis",
+      key: "eventBusModuleService",
+      options: {
+        redisUrl: process.env.REDIS_URL,
+      },
     },
     {
       resolve: "./src/modules/event",
